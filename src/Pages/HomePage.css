@@ -1,5 +1,5 @@
 .home-page {
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .home-page .products-grid {
@@ -122,8 +122,11 @@
   margin-bottom: 10px;
 }
 
-.home-page .product-quantity-container {
-  margin-bottom: 17px;
+.home-page .product-hours-container {
+  margin-bottom: 10px;
+  display:flex;
+  align-items: center;
+  gap:5px;
 }
 
 .home-page .product-spacer {
@@ -154,4 +157,20 @@
   padding: 8px;
   height: 34px;
   margin-top: 1px;
+}
+.header-text{
+  margin-top: 60px;
+}
+.header-text .order-heading-text{
+   font-family: "Cute Font", sans-serif;
+   font-size: 70px;
+}
+.header-text .order-subheading-text{
+   font-size: 15px;
+}
+.home-page .product-save-for-later-container {
+  margin-bottom: 17px;
+  display:flex;
+  align-items: center;
+  gap:5px;
 }
