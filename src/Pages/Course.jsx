@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState} from "react";
 import { formatMoney } from "../utils/Money";
 import { Clock, Bookmark } from 'lucide-react';
+import axios from "axios";
+
 export function Course({course}) {
     const [savedForLater, setSavedForLater] = useState(false);
-     function handleSaveForLaterClick() {
+    useEffect(()=>{
+        const fetchBookmark = async () => {
+            const response = await axios.get('/api/bookmarks?expand=courses');
+            setSavedForLater(response.data.some(bookmark => bookmark.courseId === course.id));
+        }
+        fetchBookmark();
+    },[course.id, setSavedForLater]);
+    
+
+     const handleSaveForLaterClick = async () => {
             if (!savedForLater) {
                 setSavedForLater(true);
+                await axios.post('/api/bookmarks', { courseId: course.id })
+
             }
             else {
                 setSavedForLater(false);
+                await axios.delete(`/api/bookmarks/${course.id}`)
             }
         }
     return (

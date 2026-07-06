@@ -9,16 +9,16 @@ import {Course} from './Course';
 export function HomePage() {
     
     const [courses, setCourses] = useState([]);
+    
     useEffect(() => {
+        let response;
         const fetchCourses = async () => {
-            const response = await axios.get('/api/courses');
+            response = await axios.get('/api/courses');
             setCourses(response.data);
         };
         fetchCourses();
     }, []);
-
    
-
     return (
         <>
             <Header />
