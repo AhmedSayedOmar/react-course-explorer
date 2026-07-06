@@ -1,5 +1,6 @@
 import './HomePage.css'
 import './header.css'
+import { formatMoney } from '../utils/Money';
 import { NavLink } from 'react-router';
 import { Clock, Bookmark } from 'lucide-react';
 import { Header } from '../components/Header';
@@ -47,21 +48,19 @@ export function HomePage() {
                                         {course.name}
                                     </div>
 
-                                    <div className="product-rating-container">
-                                        <img className="product-rating-stars"
-                                            src="/images/ratings/rating-45.png" />
-                                        <div className="product-rating-count link-primary">
-                                            87
+                                    <div className="professor-name-container">
+                                        <div className="professor-name limit-text-to-1-line">
+                                            {`by ${course.instructor}`}
                                         </div>
                                     </div>
 
                                     <div className="product-price">
-                                        $10.90
+                                        {formatMoney(course.priceCents)}
                                     </div>
 
                                     <div className="product-hours-container">
                                         <Clock />
-                                        <p>1 hour</p>
+                                        <p>{`${course.hours} hours`}</p>
                                     </div>
                                     <div className="product-save-for-later-container" onClick={handleSaveForLaterClick}>
                                         <Bookmark fill={savedForLater ? "currentColor" : "none"} />
