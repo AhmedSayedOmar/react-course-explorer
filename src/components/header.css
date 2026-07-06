@@ -142,6 +142,13 @@
   padding-left: 13px;
   padding-right: 13px;
 }
+.header .bookmark-view-link {
+  color: black;
+  display: flex;
+  align-items: center;
+  padding-left: 13px;
+  padding-right: 13px;
+}
 
 .header .orders-text {
   display: block;

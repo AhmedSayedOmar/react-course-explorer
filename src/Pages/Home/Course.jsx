@@ -1,5 +1,5 @@
 import { useEffect, useState} from "react";
-import { formatMoney } from "../utils/Money";
+import { formatMoney } from "../../utils/Money";
 import { Clock, Bookmark } from 'lucide-react';
 import axios from "axios";
 

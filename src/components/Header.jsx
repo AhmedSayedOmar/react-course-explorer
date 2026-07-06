@@ -1,7 +1,7 @@
 import './header.css'
 import { useState } from "react";
 import { useNavigate } from 'react-router';
-
+import {  Bookmark } from 'lucide-react';
 export function Header() {
     const [search,setSearch]=useState(false)
     const [searchQuery, setSearchQuery] = useState("");
@@ -21,27 +21,31 @@ export function Header() {
                 <a href="index.html" className="header-link">
                     <img className="logo"
                         src="images/logo.png" />
-                    <img className="mobile-logo"
-                        src="images/mobile-logo-white.png" />
                 </a>
             </div>
 
             <div className="middle-section">
-                <a className="home-link header-link" href="index.html">
+                <a className="home-link header-link" href="/">
 
                     <span className="home-text">Home</span>
                 </a>
-                <a className="information-link header-link" href="index.html">
+                <a className="information-link header-link" href="/">
 
                     <span className="information-text">Information</span>
                 </a>
-                <a className="orders-link header-link" href="orders.html">
+                <a className="orders-link header-link" href="/">
 
                     <span className="orders-text">Products</span>
                 </a>
-                <a className="terms-link header-link" href="index.html">
+                <a className="terms-link header-link" href="/">
 
                     <span className="terms-text">Terms</span>
+                </a>
+                <a className="bookmark-view-link header-link" href="/bookmarks">
+                    <span >
+                        Bookmark
+                    </span>
+                    
                 </a>
 
             </div>
