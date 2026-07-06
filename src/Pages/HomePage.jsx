@@ -1,7 +1,6 @@
 import './HomePage.css'
-import './header.css'
 import { NavLink } from 'react-router';
-
+import { useSearchParams } from 'react-router';
 import { Header } from '../components/Header';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -9,15 +8,17 @@ import {Course} from './Course';
 export function HomePage() {
     
     const [courses, setCourses] = useState([]);
-    
+    const [searchParams] = useSearchParams();
+    const search=searchParams.get("search");
     useEffect(() => {
         let response;
         const fetchCourses = async () => {
-            response = await axios.get('/api/courses');
+            const url=search ? `/api/courses?search=${search}` : '/api/courses';
+            response = await axios.get(url);
             setCourses(response.data);
         };
         fetchCourses();
-    }, []);
+    }, [search]);
    
     return (
         <>

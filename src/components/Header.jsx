@@ -1,11 +1,17 @@
+import './header.css'
 import { useState } from "react";
+import { useNavigate } from 'react-router';
+
 export function Header() {
     const [search,setSearch]=useState(false)
+    const [searchQuery, setSearchQuery] = useState("");
+    const navigate = useNavigate();
     function handleSearchClick(){
         if(!search){
             setSearch(true)
         }
         else{
+            navigate(`/?search=${searchQuery}`);
             setSearch(false)
         }
     }
@@ -41,7 +47,7 @@ export function Header() {
             </div>
 
             <div className="right-section">
-                {search && <input className="search-bar" type="text" placeholder="Search" />}
+                {search && <input className="search-bar" type="text" placeholder="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />}
 
                 <button className="search-button" onClick={handleSearchClick}>
                     <img className="search-icon" src="images/icons/search.png" />

@@ -7,7 +7,7 @@ export function Course({course}) {
     const [savedForLater, setSavedForLater] = useState(false);
     useEffect(()=>{
         const fetchBookmark = async () => {
-            const response = await axios.get('/api/bookmarks?expand=courses');
+            const response = await axios.get('/api/bookmarks');
             setSavedForLater(response.data.some(bookmark => bookmark.courseId === course.id));
         }
         fetchBookmark();
