@@ -52,11 +52,6 @@
     display: none;
   }
 
-  .header .mobile-logo {
-    display: block;
-    height: 26px;
-    margin-top: 1px;
-  }
 }
 
 .header .middle-section {
@@ -150,11 +145,6 @@
   padding-right: 13px;
 }
 
-.header .orders-text {
-  display: block;
-  font-size: 15px;
-  font-weight: 700;
-}
 
 .header .cart-link {
   color: white;
@@ -184,4 +174,7 @@
 
   width: 26px;
   text-align: center;
+}
+.header .active-link {
+  font-weight: bold;
 }

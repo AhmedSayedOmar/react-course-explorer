@@ -1,6 +1,6 @@
 
 import './App.css'
-import { HomePage } from './Pages/Home/HomePage';
+import { CoursesPage } from './Pages/Courses/CoursesPage';
 import { BookMarkPage } from './Pages/BookMark/BookMarkPage';
 import { DetailsPage } from './Pages/Details/DetailsPage';
 import { Routes, Route } from 'react-router';
@@ -19,9 +19,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage cart={cart} loadCart={loadCart} />} />
-      <Route path="/bookmarks" element={<BookMarkPage cart={cart}/>} />
-      <Route path="/courseDetails" element={<DetailsPage />} />
+      <Route path="/" element={<CoursesPage cart={cart} loadCart={loadCart} />} />
+      <Route path="/bookmarks" element={<BookMarkPage cart={cart} loadCart={loadCart}/>} />
+      <Route path="/courseDetails" element={<DetailsPage  />} />
       <Route path="/checkout" element={<CheckoutPage cart={cart} loadCart={loadCart}/>}></Route>
     </Routes>
   )

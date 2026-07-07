@@ -1,6 +1,6 @@
 import './header.css'
 import { useState } from "react";
-import { useNavigate } from 'react-router';
+import { useNavigate,NavLink } from 'react-router';
 import {  Bookmark } from 'lucide-react';
 export function Header({cart}) {
     const [search,setSearch]=useState(false)
@@ -27,23 +27,23 @@ export function Header({cart}) {
                 </a>
             </div>
 
-            <div className="middle-section">
-                <a className="home-link header-link" href="/">
+            <nav className="middle-section">
+                <NavLink className={({ isActive }) => isActive ? "home-link header-link active-link" : "home-link header-link"} to="/">
 
                     <span className="home-text">Home</span>
-                </a>
-                <a className="orders-link header-link" href="/">
+                </NavLink>
+                <NavLink className={({ isActive }) => isActive ? "orders-link header-link active-link" : "orders-link header-link"}  to="/">
 
                     <span className="orders-text">Products</span>
-                </a>
-                <a className="bookmark-view-link header-link" href="/bookmarks">
+                </NavLink>
+                <NavLink className={({ isActive }) => isActive ? "bookmark-view-link header-link active-link" : "bookmark-view-link header-link"}  to="/bookmarks">
                     <span >
                         Bookmark
                     </span>
                     
-                </a>
+                </NavLink>
 
-            </div>
+            </nav>
 
             <div className="right-section">
                 {search && <input className="search-bar" type="text" placeholder="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />}

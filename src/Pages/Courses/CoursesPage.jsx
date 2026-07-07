@@ -1,11 +1,11 @@
-import './HomePage.css'
+import './CoursesPage.css'
 import { NavLink } from 'react-router';
 import { useSearchParams } from 'react-router';
 import {Header} from '../../components/Header';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Course} from './Course';
-export function HomePage({cart,loadCart}) {
+export function CoursesPage({cart,loadCart}) {
     
     const [courses, setCourses] = useState([]);
     const [searchParams] = useSearchParams();

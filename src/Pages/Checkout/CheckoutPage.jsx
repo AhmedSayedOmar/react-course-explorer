@@ -4,7 +4,6 @@ import { CartItems } from './CartItems'
 import { formatMoney } from '../../utils/Money';
 import {Link} from 'react-router'
 export function CheckoutPage({ cart, loadCart }) {
-    console.log(cart);
     function calculatePayment() {
         let total = 0;
         cart.forEach((cartItem) => {
@@ -21,7 +20,6 @@ export function CheckoutPage({ cart, loadCart }) {
                     <div className="checkout-header-left-section">
                         <Link to="/">
                             <img className="logo" src="images/logo.png" />
-                            <img className="mobile-logo" src="images/mobile-logo.png" />
                         </Link>
                     </div>
 

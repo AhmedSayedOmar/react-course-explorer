@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react';
 import { Header } from '../../components/Header';
-import {Course} from '../Home/Course';
+import {Course} from '../Courses/Course';
 import axios from 'axios';
-export function BookMarkPage({cart}) {
+export function BookMarkPage({cart, loadCart}) {
     const [bookmarkedCourses, setBookmarkedCourses] = useState([]);
     useEffect(() => {
         let response;
@@ -22,7 +22,7 @@ export function BookMarkPage({cart}) {
                 <div className="products-grid">
                     {
                         bookmarkedCourses.map((course) => {
-                            return <Course key={course.course.id} course={course.course} />;
+                            return <Course key={course.course.id} course={course.course} loadCart={loadCart} />;
                         })
                     }
                 </div>

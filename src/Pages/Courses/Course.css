@@ -1,0 +1,11 @@
+.clicable-course-link {
+    text-decoration: none;
+    color: black;
+    
+}
+.clickable-course{
+    cursor: pointer;
+}
+.product-save-for-later-container{
+    cursor: pointer;
+}
