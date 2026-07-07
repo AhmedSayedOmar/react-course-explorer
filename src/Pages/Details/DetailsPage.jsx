@@ -5,7 +5,17 @@ import './DetailsPage.css'
 export function DetailsPage() {
     const navigate=useNavigate();
     const [course, setCourse] = useState(null);
-
+    const [showAdded,setShowAdded]=useState(false);
+    const addToCart=async()=>{
+        await axios.post('/api/cart-items',{
+            courseId:course.id,
+            quantity: 1
+        });
+        setShowAdded(true);
+        setTimeout(()=>{
+            setShowAdded(false);
+        },2000)
+    }
     const [searchParams] = useSearchParams();
     const search = searchParams.get("search");
     console.log(search);
@@ -76,8 +86,12 @@ export function DetailsPage() {
                 <p>{course.details}</p>
 
             </div>
+            <div className="added-to-cart" style={{opacity:showAdded?1:0}}>
+                <img src="/images/icons/checkmark.png" />
+                Added
+            </div>
 
-            <button className="enroll-button">
+            <button className="enroll-button" onClick={addToCart}>
                 Add to Cart
             </button>
 

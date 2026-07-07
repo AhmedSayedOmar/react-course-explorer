@@ -7,6 +7,7 @@ import './Course.css';
 
 export function Course({ course ,loadCart}) {
     const [savedForLater, setSavedForLater] = useState(false);
+    const [showAdded,setShowAdded]=useState(false);
     useEffect(() => {
         const fetchBookmark = async () => {
             const response = await axios.get('/api/bookmarks');
@@ -28,9 +29,13 @@ export function Course({ course ,loadCart}) {
     const addToCart=async()=>{
         await axios.post('api/cart-items',{
             courseId:course.id,
-            qunatity: 1
+            quantity: 1
         });
         await loadCart();
+        setShowAdded(true);
+        setTimeout(()=>{
+            setShowAdded(false);
+        },2000)
     }
     return (
         <div key={course.id} className="product-container">
@@ -67,7 +72,7 @@ export function Course({ course ,loadCart}) {
             </div>
             <div className="product-spacer"></div>
 
-            <div className="added-to-cart">
+            <div className="added-to-cart" style={{opacity:showAdded?1:0}}>
                 <img src="/images/icons/checkmark.png" />
                 Added
             </div>

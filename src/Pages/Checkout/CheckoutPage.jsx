@@ -3,7 +3,7 @@ import './CheckoutPage.css';
 import { CartItems } from './CartItems'
 import { formatMoney } from '../../utils/Money';
 import {Link} from 'react-router'
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
     console.log(cart);
     function calculatePayment() {
         let total = 0;
@@ -42,7 +42,7 @@ export function CheckoutPage({ cart }) {
                 <div className="checkout-grid">
                     <div className="order-summary">
                         {cart.map((cartItem) => {
-                            return (<CartItems key={cartItem.courseId} cartItemCourse={cartItem.course} />);
+                            return (<CartItems key={cartItem.courseId} cartItemCourse={cartItem.course} loadCart={loadCart}/>);
                         })}
 
 
