@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react';
 import { Header } from '../../components/Header';
 import {Course} from '../Home/Course';
 import axios from 'axios';
-export function BookMarkPage() {
+export function BookMarkPage({cart}) {
     const [bookmarkedCourses, setBookmarkedCourses] = useState([]);
     useEffect(() => {
         let response;
@@ -14,7 +14,7 @@ export function BookMarkPage() {
     }, []);
     return (
         <>
-            <Header />
+            <Header cart={cart} />
             <div className="header-text">
                 <p className="order-heading-text">Book Marked Courses</p>
             </div>

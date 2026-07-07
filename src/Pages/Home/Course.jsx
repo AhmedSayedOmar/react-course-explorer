@@ -1,54 +1,65 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import { formatMoney } from "../../utils/Money";
 import { Clock, Bookmark } from 'lucide-react';
+import { useNavigate } from 'react-router';
 import axios from "axios";
+import './Course.css';
 
-export function Course({course}) {
+export function Course({ course ,loadCart}) {
     const [savedForLater, setSavedForLater] = useState(false);
-    useEffect(()=>{
+    useEffect(() => {
         const fetchBookmark = async () => {
             const response = await axios.get('/api/bookmarks');
             setSavedForLater(response.data.some(bookmark => bookmark.courseId === course.id));
         }
         fetchBookmark();
-    },[course.id, setSavedForLater]);
-    
-
-     const handleSaveForLaterClick = async () => {
-            if (!savedForLater) {
-                setSavedForLater(true);
-                await axios.post('/api/bookmarks', { courseId: course.id })
-
-            }
-            else {
-                setSavedForLater(false);
-                await axios.delete(`/api/bookmarks/${course.id}`)
-            }
+    }, [course.id, setSavedForLater]);
+    const navigate = useNavigate();
+    const handleSaveForLaterClick = async () => {
+        if (!savedForLater) {
+            setSavedForLater(true);
+            await axios.post('/api/bookmarks', { courseId: course.id })
         }
+        else {
+            setSavedForLater(false);
+            await axios.delete(`/api/bookmarks/${course.id}`)
+        }
+    }
+    const addToCart=async()=>{
+        await axios.post('api/cart-items',{
+            courseId:course.id,
+            qunatity: 1
+        });
+        await loadCart();
+    }
     return (
         <div key={course.id} className="product-container">
-            <div className="product-image-container">
-                <img className="product-image"
-                    src={course.image} />
-            </div>
+            <div className="clickable-course" onClick={()=>{ navigate(`courseDetails/?search=${course.id}`)}}>
+                
 
-            <div className="product-name limit-text-to-2-lines">
-                {course.name}
-            </div>
+                    <div className="product-image-container">
+                        <img className="product-image"
+                            src={course.image} />
+                    </div>
 
-            <div className="professor-name-container">
-                <div className="professor-name limit-text-to-1-line">
-                    {`by ${course.instructor}`}
-                </div>
-            </div>
+                    <div className="product-name limit-text-to-2-lines">
+                        {course.name}
+                    </div>
 
-            <div className="product-price">
-                {formatMoney(course.priceCents)}
-            </div>
+                    <div className="professor-name-container">
+                        <div className="professor-name limit-text-to-1-line">
+                            {`by ${course.instructor}`}
+                        </div>
+                    </div>
 
-            <div className="product-hours-container">
-                <Clock />
-                <p>{`${course.hours} hours`}</p>
+                    <div className="product-price">
+                        {formatMoney(course.priceCents)}
+                    </div>
+
+                    <div className="product-hours-container">
+                        <Clock />
+                        <p>{`${course.hours} hours`}</p>
+                    </div>
             </div>
             <div className="product-save-for-later-container" onClick={handleSaveForLaterClick}>
                 <Bookmark fill={savedForLater ? "currentColor" : "none"} />
@@ -61,7 +72,7 @@ export function Course({course}) {
                 Added
             </div>
 
-            <button className="add-to-cart-button button-primary">
+            <button className="add-to-cart-button button-primary" onClick={addToCart}>
                 Add to Cart
             </button>
         </div>

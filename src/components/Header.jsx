@@ -2,10 +2,13 @@ import './header.css'
 import { useState } from "react";
 import { useNavigate } from 'react-router';
 import {  Bookmark } from 'lucide-react';
-export function Header() {
+export function Header({cart}) {
     const [search,setSearch]=useState(false)
     const [searchQuery, setSearchQuery] = useState("");
     const navigate = useNavigate();
+    function calculateQunatity(){
+        return (cart.length);
+    }
     function handleSearchClick(){
         if(!search){
             setSearch(true)
@@ -18,7 +21,7 @@ export function Header() {
     return (
         <div className="header">
             <div className="left-section">
-                <a href="index.html" className="header-link">
+                <a href="/" className="header-link">
                     <img className="logo"
                         src="images/logo.png" />
                 </a>
@@ -29,17 +32,9 @@ export function Header() {
 
                     <span className="home-text">Home</span>
                 </a>
-                <a className="information-link header-link" href="/">
-
-                    <span className="information-text">Information</span>
-                </a>
                 <a className="orders-link header-link" href="/">
 
                     <span className="orders-text">Products</span>
-                </a>
-                <a className="terms-link header-link" href="/">
-
-                    <span className="terms-text">Terms</span>
                 </a>
                 <a className="bookmark-view-link header-link" href="/bookmarks">
                     <span >
@@ -58,9 +53,9 @@ export function Header() {
                 </button>
 
 
-                <a className="cart-link header-link" href="checkout.html">
+                <a className="cart-link header-link" href="/checkout">
                     <img className="cart-icon" src="images/icons/cart-icon.png" />
-                    <div className="cart-quantity">3</div>
+                    <div className="cart-quantity">{calculateQunatity()}</div>
                     <div className="cart-text">Cart</div>
                 </a>
             </div>
