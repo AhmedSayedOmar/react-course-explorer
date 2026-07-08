@@ -23,7 +23,7 @@ export function Course({ course ,loadCart}) {
         }
         else {
             setSavedForLater(false);
-            await axios.delete(`/api/bookmarks/${course.id}`)
+            await axios.delete(`${import.meta.env.VITE_API_URL}/api/bookmarks/${course.id}`)
         }
     }
     const addToCart=async()=>{

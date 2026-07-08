@@ -22,7 +22,7 @@ export function DetailsPage() {
 
     useEffect(() => {
         const fetchCourses = async () => {
-            const response = await axios.get("/api/courses");
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/courses`);
             const selectedCourse = response.data.find(
                 (course) => course.id === search
             );

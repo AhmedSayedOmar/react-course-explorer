@@ -10,7 +10,7 @@ import { CheckoutPage } from './Pages/Checkout/CheckoutPage';
 function App() {
   const [cart, setCart] = useState([])
   const loadCart = async () => {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/cart-items/?expand=course`)
+    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/cart-items?expand=course`)
     setCart(response.data)
   }
   useEffect(() => {
