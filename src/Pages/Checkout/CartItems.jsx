@@ -9,7 +9,7 @@ export function CartItems({cartItemCourse,loadCart}){
         <div className="cart-item-container">
               <div className="cart-item-details-grid">
                 <img className="product-image"
-                  src={cartItemCourse.image} />
+                  src={`${import.meta.env.VITE_API_URL}${cartItemCourse.image}`} />
 
                 <div className="cart-item-details">
                   <div className="product-name">

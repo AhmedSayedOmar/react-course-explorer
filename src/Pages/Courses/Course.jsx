@@ -27,7 +27,7 @@ export function Course({ course ,loadCart}) {
         }
     }
     const addToCart=async()=>{
-        await axios.post('api/cart-items',{
+        await axios.post(`${import.meta.env.VITE_API_URL}/api/cart-items`,{
             courseId:course.id,
             quantity: 1
         });
