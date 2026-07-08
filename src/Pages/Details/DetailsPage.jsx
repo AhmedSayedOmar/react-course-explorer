@@ -48,7 +48,7 @@ export function DetailsPage() {
             <div className="course-header">
 
                 <img
-                    src={course.image}
+                    src={`${import.meta.env.VITE_API_URL}${course.image}`}
                     className="details-image"
                 />
 
