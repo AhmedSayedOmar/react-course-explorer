@@ -34,31 +34,6 @@ A full-stack course marketplace web app where users can browse courses, bookmark
 - Frontend hosted on Vercel
 - Backend hosted on Render
 
-## Project Structure
-
-```
-react-course-explorer/
-├── src/
-│   ├── Pages/
-│   │   ├── Courses/
-│   │   │   └── CoursesPage.jsx
-│   │   ├── BookMark/
-│   │   │   └── BookMarkPage.jsx
-│   │   ├── Details/
-│   │   │   └── DetailsPage.jsx
-│   │   └── Checkout/
-│   │       ├── CheckoutPage.jsx
-│   │       └── CartItems.jsx
-│   ├── utils/
-│   │   └── Money.js
-│   ├── App.jsx
-│   └── main.jsx
-├── public/
-│   └── images/            # static frontend assets (logo, icons, etc.)
-├── vercel.json             # SPA rewrite rules for client-side routing
-├── vite.config.js
-└── package.json
-```
 
 ## Frontend Routes
 
