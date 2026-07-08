@@ -19,7 +19,7 @@ export function CheckoutPage({ cart, loadCart }) {
                 <div className="header-content">
                     <div className="checkout-header-left-section">
                         <Link to="/">
-                            <img className="logo" src="images/logo.png" />
+                            <img className="logo" src={`${import.meta.env.VITE_API_URL}/images/logo.png`} />
                         </Link>
                     </div>
 
@@ -29,7 +29,7 @@ export function CheckoutPage({ cart, loadCart }) {
                     </div>
 
                     <div className="checkout-header-right-section">
-                        <img src="images/icons/checkout-lock-icon.png" />
+                        <img src={`${import.meta.env.VITE_API_URL}/images/icons/checkout-lock-icon.png`} />
                     </div>
                 </div>
             </div>

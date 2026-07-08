@@ -23,7 +23,7 @@ export function Header({cart}) {
             <div className="left-section">
                 <a href="/" className="header-link">
                     <img className="logo"
-                        src="images/logo.png" />
+                        src={`${import.meta.env.VITE_API_URL}/images/logo.png`} />
                 </a>
             </div>
 
@@ -49,12 +49,12 @@ export function Header({cart}) {
                 {search && <input className="search-bar" type="text" placeholder="Search" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />}
 
                 <button className="search-button" onClick={handleSearchClick}>
-                    <img className="search-icon" src="images/icons/search.png" />
+                    <img className="search-icon" src={`${import.meta.env.VITE_API_URL}/images/icons/search.png`} />
                 </button>
 
 
                 <a className="cart-link header-link" href="/checkout">
-                    <img className="cart-icon" src="images/icons/cart-icon.png" />
+                    <img className="cart-icon" src={`${import.meta.env.VITE_API_URL}/images/icons/cart-icon.png`} />
                     <div className="cart-quantity">{calculateQunatity()}</div>
                     <div className="cart-text">Cart</div>
                 </a>

@@ -87,7 +87,7 @@ export function DetailsPage() {
 
             </div>
             <div className="added-to-cart" style={{opacity:showAdded?1:0}}>
-                <img src="/images/icons/checkmark.png" />
+                <img src={`${import.meta.env.VITE_API_URL}/images/icons/checkmark.png`} />
                 Added
             </div>
 
