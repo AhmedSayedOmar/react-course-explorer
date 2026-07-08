@@ -39,7 +39,7 @@ export function Course({ course ,loadCart}) {
     }
     return (
         <div key={course.id} className="product-container">
-            <div className="clickable-course" onClick={()=>{ navigate(`courseDetails/?search=${course.id}`)}}>
+            <div className="clickable-course" onClick={()=>{ navigate(`/courseDetails/?search=${course.id}`)}}>
                 
 
                     <div className="product-image-container">
