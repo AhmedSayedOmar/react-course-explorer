@@ -2,7 +2,7 @@ import { formatMoney } from "../../utils/Money";
 import axios from 'axios'
 export function CartItems({cartItemCourse,loadCart}){
     const deleteCourse= async()=>{
-        await axios.delete(`/api/cart-items/${cartItemCourse.id}`)
+        await axios.delete(`${import.meta.env.VITE_API_URL}/api/cart-items/${cartItemCourse.id}`)
         await loadCart();
     }
     return(

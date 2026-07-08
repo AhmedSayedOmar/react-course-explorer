@@ -7,7 +7,7 @@ export function BookMarkPage({cart, loadCart}) {
     useEffect(() => {
         let response;
         const fetchCourses = async () => {
-            response = await axios.get('/api/bookmarks?expand=course');
+            response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bookmarks?expand=course`);
             setBookmarkedCourses(response.data);
         };
         fetchCourses();

@@ -13,7 +13,7 @@ export function CoursesPage({cart,loadCart}) {
     useEffect(() => {
         let response;
         const fetchCourses = async () => {
-            const url=search ? `/api/courses?search=${search}` : '/api/courses';
+            const url=search ? `${import.meta.env.VITE_API_URL}/api/courses?search=${search}` : `${import.meta.env.VITE_API_URL}/api/courses`;
             response = await axios.get(url);
             setCourses(response.data);
         };

@@ -10,7 +10,7 @@ export function Course({ course ,loadCart}) {
     const [showAdded,setShowAdded]=useState(false);
     useEffect(() => {
         const fetchBookmark = async () => {
-            const response = await axios.get('/api/bookmarks');
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/bookmarks`);
             setSavedForLater(response.data.some(bookmark => bookmark.courseId === course.id));
         }
         fetchBookmark();
@@ -19,7 +19,7 @@ export function Course({ course ,loadCart}) {
     const handleSaveForLaterClick = async () => {
         if (!savedForLater) {
             setSavedForLater(true);
-            await axios.post('/api/bookmarks', { courseId: course.id })
+            await axios.post(`${import.meta.env.VITE_API_URL}/api/bookmarks`, { courseId: course.id })
         }
         else {
             setSavedForLater(false);
