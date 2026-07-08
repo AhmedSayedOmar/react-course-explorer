@@ -44,7 +44,7 @@ export function Course({ course ,loadCart}) {
 
                     <div className="product-image-container">
                         <img className="product-image"
-                            src={course.image} />
+                            src={`${import.meta.env.VITE_API_URL}/${course.image}`} />
                     </div>
 
                     <div className="product-name limit-text-to-2-lines">
