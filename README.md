@@ -45,6 +45,7 @@ A full-stack course marketplace web app where users can browse courses, bookmark
 
 ## Backend Repo
 you can clone it and run it locally or deploy it on a free teir platforms like render.
+
 URL:(https://github.com/AhmedSayedOmar/react-course-explorer-backend/tree/main)
 
 ### Courses
@@ -86,7 +87,7 @@ URL:(https://github.com/AhmedSayedOmar/react-course-explorer-backend/tree/main)
 
 ### Prerequisites
 - Node.js installed
-- The backend repo running (see [backend README](#) or run it locally on `http://localhost:3000`)
+- The backend repo (see [backend README](URL:(https://github.com/AhmedSayedOmar/react-course-explorer-backend/tree/main)) and run it locally on `http://localhost:3000`):  
 
 ### Setup
 
@@ -105,7 +106,6 @@ URL:(https://github.com/AhmedSayedOmar/react-course-explorer-backend/tree/main)
    ```
    VITE_API_URL=http://localhost:3000
    ```
-   (Use your deployed backend URL instead if you're not running the backend locally, e.g. `https://react-course-explorer-backend.onrender.com`.)
 
 4. Start the dev server:
    ```bash
