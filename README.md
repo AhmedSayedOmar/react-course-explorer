@@ -5,7 +5,7 @@ A full-stack course marketplace web app where users can browse courses, bookmark
 ## Live Demo
 
 - **Frontend (Vercel):(https://react-course-explorer-jx3o0e66q-ahmedsayedomar1.vercel.app/)
-- **Backend API (Render):[** https://react-course-explorer-backend.onrender.com](https://react-course-explorer-backend.onrender.com)
+- **Backend API (Render):([https://react-course-explorer-backend.onrender.com](https://react-course-explorer-jx3o0e66q-ahmedsayedomar1.vercel.app))
 
 > Note: the backend is hosted on Render's free tier, so it may take 30–50 seconds to "wake up" if it hasn't been used recently. If the app looks like it's not loading data at first, give it a moment and refresh.
 
